@@ -1,5 +1,3 @@
-package Pages;
-
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$x;
@@ -10,7 +8,7 @@ public class InitialPage {
 
     public CardDetailsPage shouldOpenCardDetails() {
         buyWithCard.click();
-        return new CardDetailsPage;
+        return new CardDetailsPage();
     }
 
 }

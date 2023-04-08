@@ -5,9 +5,8 @@ services:
     image: mysql:8.0
     restart: always
     ports:
-      - '8080:8080'
-    volumes:
-      - ./schema.sql:/docker-entrypoint-initdb.d
+      - '3306:3306'
+
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
       - MYSQL_DATABASE=TravelShopDB

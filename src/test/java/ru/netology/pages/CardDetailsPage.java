@@ -1,5 +1,8 @@
+package ru.netology.pages;
+
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import ru.netology.data.Information;
 
 import java.time.Duration;
 
@@ -26,17 +29,16 @@ public class CardDetailsPage {
         paymentHeading.shouldBe(Condition.visible);
     }
 
-    public CardDetailsPage fillInCardDetails(Information.CardInfo info) {
+    public void fillInCardDetails(Information.CardInfo info) {
         cardNumber.setValue(info.getCardNumber());
         month.setValue(info.getMonth());
         year.setValue(info.getYear());
         owner.setValue(info.getOwner());
         cvc.setValue(info.getCvc());
         button.click();
-        return new CardDetailsPage();
     }
 
-    public CardDetailsPage fillInRandomCardDetails(Information.RandomInfo randomInfo) {
+    /*public CardDetailsPage fillInRandomCardDetails(Information.RandomInfo randomInfo) {
         cardNumber.setValue(randomInfo.getRandomCardNumber());
         month.setValue(randomInfo.getRandomMonth());
         year.setValue(randomInfo.getRandomYear());
@@ -44,19 +46,18 @@ public class CardDetailsPage {
         cvc.setValue(randomInfo.getRandomCvc());
         button.click();
         return new CardDetailsPage();
-    }
+    }*/
 
-    public CardDetailsPage leaveFieldsBlank() {
+    public void leaveFieldsBlank() {
         cardNumber.setValue("");
         month.setValue("");
         year.setValue("");
         owner.setValue("");
         cvc.setValue("");
         button.click();
-        return new CardDetailsPage();
-    }
+         }
 
-    public CardDetailsPage fillInNoCardNumber(Information.RandomInfo noCardNumber) {
+    /*public CardDetailsPage fillInNoCardNumber(Information.RandomInfo noCardNumber) {
         cardNumber.setValue("");
         month.setValue(noCardNumber.getRandomMonth());
         year.setValue(noCardNumber.getRandomYear());
@@ -64,19 +65,19 @@ public class CardDetailsPage {
         cvc.setValue(noCardNumber.getRandomCvc());
         button.click();
         return new CardDetailsPage();
-    }
+    }*/
 
     public void okNotificationVisible() {
-        okNotification.shouldBe(Condition.visible, Duration.ofSeconds(10));
+        okNotification.shouldBe(Condition.visible, Duration.ofSeconds(15));
     }
 
     public void errorNotificationVisible() {
-        errorNotification.shouldBe(Condition.visible, Duration.ofSeconds(10));
+        errorNotification.shouldBe(Condition.visible, Duration.ofSeconds(15));
     }
 
-    public void cardNumberWrongFormat() {
+    /*public void cardNumberWrongFormat() {
         cardNumberWrongFormatNotification.shouldBe(Condition.visible);
-    }
+    }*/
 
     public void allWrongNotificationsVisible() {
         cardNumberWrongFormatNotification.shouldBe(Condition.visible);

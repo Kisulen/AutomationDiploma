@@ -1,3 +1,5 @@
+package ru.netology.data;
+
 import com.github.javafaker.Faker;
 import lombok.Value;
 
@@ -27,6 +29,10 @@ public class Information {
         return new CardInfo("5555 6666 7777 8888", "12", "26", "Vasiliy Pupkin", "000");
     }
 
+    public static CardInfo getRandomCardInfo() {
+        return new CardInfo (generateCardNumber(), generateMonth(4), generateYear(3), generateName("en"), generateCvc());
+    }
+
     @Value
     public static class RandomInfo {
         private String randomCardNumber;
@@ -38,18 +44,18 @@ public class Information {
 
     private static Faker faker;
 
-    public static String generateCardNumber(String locale) {
-        faker = new Faker(new Locale("ru"));
+    public static String generateCardNumber() {
+        faker = new Faker();
         String randomCardNumber = faker.business().creditCardNumber();
         return randomCardNumber;
     }
 
     public static String generateMonth(int shift) {
-        return LocalDate.now().plusDays(shift).format(DateTimeFormatter.ofPattern("MM"));
+        return LocalDate.now().plusMonths(shift).format(DateTimeFormatter.ofPattern("MM"));
     }
 
     public static String generateYear(int shift) {
-        return LocalDate.now().plusDays(shift).format(DateTimeFormatter.ofPattern("yy"));
+        return LocalDate.now().plusYears(shift).format(DateTimeFormatter.ofPattern("yy"));
     }
 
     public static String generateName(String locale) {
@@ -64,8 +70,8 @@ public class Information {
         return randomCvc;
     }
 
-    public static RandomInfo generateRandomCardInfo(String locale) {
+    /*public static RandomInfo generateRandomCardInfo(String locale) {
         return new RandomInfo(generateCardNumber("ru"), generateMonth(Integer.parseInt("3")), generateYear(Integer.parseInt("3")),
                 generateName("ru"), generateCvc());
-    }
+    }*/
 }

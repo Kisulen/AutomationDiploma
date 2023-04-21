@@ -16,7 +16,7 @@ public class PositiveTests {
         var cardInfo = Information.getApprovedCardInfo();
         cardDetailsPage.fillInCardDetails(cardInfo);
         cardDetailsPage.okNotificationVisible();
-        //SQLHelper.returnStatusOfTransaction().equals("APPROVED");
+        SQLHelper.returnStatusOfTransaction().equals("APPROVED");
     }
 
     @Test
@@ -27,6 +27,6 @@ public class PositiveTests {
         var cardInfo = Information.getDeclinedCardInfo();
         cardDetailsPage.fillInCardDetails(cardInfo);
         cardDetailsPage.errorNotificationVisible();
-        //SQLHelper.returnStatusOfTransaction().equals("DECLINED");
+        SQLHelper.returnStatusOfTransaction().equals("DECLINED");
     }
 }

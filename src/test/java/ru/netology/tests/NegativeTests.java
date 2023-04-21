@@ -17,7 +17,7 @@ public class NegativeTests {
         var randomInfo = Information.getRandomCardInfo();
         cardDetailsPage.fillInCardDetails(randomInfo);
         cardDetailsPage.errorNotificationVisible();
-        //SQLHelper.returnStatusOfTransaction().equals("DECLINED");
+        SQLHelper.returnStatusOfTransaction().equals("DECLINED");
     }
 
     /*@Test
@@ -38,6 +38,6 @@ public class NegativeTests {
         var cardDetailsPage = initialPage.shouldOpenCardDetails();
         cardDetailsPage.leaveFieldsBlank();
         cardDetailsPage.allWrongNotificationsVisible();
-        //SQLHelper.returnStatusOfTransaction().equals("DECLINED");
+        SQLHelper.returnStatusOfTransaction().equals("DECLINED");
     }
 }

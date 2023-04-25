@@ -20,18 +20,7 @@ public class NegativeTests {
         SQLHelper.returnStatusOfTransaction().equals("DECLINED");
     }
 
-    /*@Test
-    void shouldFailIfNoCardNumber() {
-        open("http://localhost:8080");
-        var initialPage = new InitialPage();
-        var cardDetailsPage = initialPage.shouldOpenCardDetails();
-        var cardInfo = Information.generateRandomCardInfo("en");
-        cardDetailsPage.fillInCardDetails(cardInfo);
-        cardDetailsPage.cardNumberWrongFormat();
-        SQLHelper.returnStatusOfTransaction().equals("DECLINED");
-    }*/
-
-    @Test
+        @Test
     void shouldFailIfAllFieldsEmpty() {
         open("http://localhost:8080");
         var initialPage = new InitialPage();
@@ -40,4 +29,5 @@ public class NegativeTests {
         cardDetailsPage.allWrongNotificationsVisible();
         SQLHelper.returnStatusOfTransaction().equals("DECLINED");
     }
-}
+
+   }

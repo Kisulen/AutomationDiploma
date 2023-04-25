@@ -30,16 +30,7 @@ public class Information {
     }
 
     public static CardInfo getRandomCardInfo() {
-        return new CardInfo (generateCardNumber(), generateMonth(4), generateYear(3), generateName("en"), generateCvc());
-    }
-
-    @Value
-    public static class RandomInfo {
-        private String randomCardNumber;
-        private String randomMonth;
-        private String randomYear;
-        private String randomOwner;
-        private String randomCvc;
+        return new CardInfo(generateCardNumber(), generateMonth(4), generateYear(3), generateName("en"), generateCvc());
     }
 
     private static Faker faker;
@@ -59,19 +50,14 @@ public class Information {
     }
 
     public static String generateName(String locale) {
-        faker = new Faker(new Locale("ru"));
+        faker = new Faker(new Locale("en"));
         String randomName = faker.name().fullName();
         return randomName;
     }
 
     public static String generateCvc() {
-        //faker = new Faker(new Locale("ru"));
         String randomCvc = faker.numerify("###");
         return randomCvc;
     }
 
-    /*public static RandomInfo generateRandomCardInfo(String locale) {
-        return new RandomInfo(generateCardNumber("ru"), generateMonth(Integer.parseInt("3")), generateYear(Integer.parseInt("3")),
-                generateName("ru"), generateCvc());
-    }*/
 }

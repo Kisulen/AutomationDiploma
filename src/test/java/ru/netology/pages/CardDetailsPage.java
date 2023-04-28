@@ -38,15 +38,6 @@ public class CardDetailsPage {
         button.click();
     }
 
-    /*public CardDetailsPage fillInRandomCardDetails(Information.RandomInfo randomInfo) {
-        cardNumber.setValue(randomInfo.getRandomCardNumber());
-        month.setValue(randomInfo.getRandomMonth());
-        year.setValue(randomInfo.getRandomYear());
-        owner.setValue(randomInfo.getRandomOwner());
-        cvc.setValue(randomInfo.getRandomCvc());
-        button.click();
-        return new CardDetailsPage();
-    }*/
 
     public void leaveFieldsBlank() {
         cardNumber.setValue("");
@@ -57,15 +48,6 @@ public class CardDetailsPage {
         button.click();
          }
 
-    /*public CardDetailsPage fillInNoCardNumber(Information.RandomInfo noCardNumber) {
-        cardNumber.setValue("");
-        month.setValue(noCardNumber.getRandomMonth());
-        year.setValue(noCardNumber.getRandomYear());
-        owner.setValue(noCardNumber.getRandomOwner());
-        cvc.setValue(noCardNumber.getRandomCvc());
-        button.click();
-        return new CardDetailsPage();
-    }*/
 
     public void okNotificationVisible() {
         okNotification.shouldBe(Condition.visible, Duration.ofSeconds(15));
@@ -75,9 +57,6 @@ public class CardDetailsPage {
         errorNotification.shouldBe(Condition.visible, Duration.ofSeconds(15));
     }
 
-    /*public void cardNumberWrongFormat() {
-        cardNumberWrongFormatNotification.shouldBe(Condition.visible);
-    }*/
 
     public void allWrongNotificationsVisible() {
         cardNumberWrongFormatNotification.shouldBe(Condition.visible);
